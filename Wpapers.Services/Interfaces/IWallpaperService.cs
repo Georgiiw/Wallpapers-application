@@ -10,5 +10,6 @@ namespace Wpapers.Services.Interfaces
     public interface IWallpaperService
     {
         Task<IEnumerable<WallpaperViewModel>> AllWpAsync();
+        Task AddWallpaperAsync(AddWallpaperFormModel model, string userId);
     }
 }

@@ -2,7 +2,12 @@
 
     @if (Model.Any())
 {
-    <h5>All Wallpapers:</h5>
+    <h5>All Wallpapers:
+        @foreach (var wp in Model)
+        {
+            <img src="@wp.ImagePath" title="@wp.Ttitle">
+        }
+    </h5>
 }
 else
 {
