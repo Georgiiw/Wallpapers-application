@@ -5,11 +5,15 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpapers", "Wpapers\Wpapers.csproj", "{BD1EE348-4D8D-4CA8-960C-D6D19B4E0A8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpapers.Data", "Wpapers.Data\Wpapers.Data.csproj", "{FEE83D41-AC07-4AB8-A0A5-E5F239C3853F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpapers.Data", "Wpapers.Data\Wpapers.Data.csproj", "{FEE83D41-AC07-4AB8-A0A5-E5F239C3853F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpapers.Data.Models", "Wpapers.Data.Models\Wpapers.Data.Models.csproj", "{ABA964E9-ED1B-47CE-BC97-8BB3BAAB91AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpapers.Data.Models", "Wpapers.Data.Models\Wpapers.Data.Models.csproj", "{ABA964E9-ED1B-47CE-BC97-8BB3BAAB91AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpapers.Common", "Wpapers.Common\Wpapers.Common.csproj", "{07DA25DD-4491-466F-B2F6-5BF98B398F72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpapers.Common", "Wpapers.Common\Wpapers.Common.csproj", "{07DA25DD-4491-466F-B2F6-5BF98B398F72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpapers.Services", "Wpapers.Services\Wpapers.Services.csproj", "{0FCE4B34-3275-48C9-95B9-9B8A4A152151}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpapers.ViewModels", "Wpapers.ViewModels\Wpapers.ViewModels.csproj", "{A9CF49C4-2914-4D1A-9CD1-0AF290774116}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{07DA25DD-4491-466F-B2F6-5BF98B398F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07DA25DD-4491-466F-B2F6-5BF98B398F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07DA25DD-4491-466F-B2F6-5BF98B398F72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FCE4B34-3275-48C9-95B9-9B8A4A152151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FCE4B34-3275-48C9-95B9-9B8A4A152151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FCE4B34-3275-48C9-95B9-9B8A4A152151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FCE4B34-3275-48C9-95B9-9B8A4A152151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9CF49C4-2914-4D1A-9CD1-0AF290774116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9CF49C4-2914-4D1A-9CD1-0AF290774116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9CF49C4-2914-4D1A-9CD1-0AF290774116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9CF49C4-2914-4D1A-9CD1-0AF290774116}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

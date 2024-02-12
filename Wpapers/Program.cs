@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Wpapers.Data;
+using Wpapers.Services;
+using Wpapers.Services.Interfaces;
 
 namespace Wpapers
 {
@@ -19,6 +21,8 @@ namespace Wpapers
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<IWallpaperService, WallpaperService>();
 
             var app = builder.Build();
 
