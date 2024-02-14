@@ -1,0 +1,37 @@
+﻿@model IEnumerable<WallpaperViewModel>
+@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims
+
+@if (Model.Any())
+{
+<div class="mx-auto p-2">
+    <h2 class="text-center">My Wallpapers:</h2>
+</div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var wp in Model.Where(u => u.UploaderId == User.FindFirst(ClaimTypes.NameIdentifier)?.Value))
+        {
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@wp.ImagePath">
+                    <div class="card-body">
+                        <h5 class="card-title">@wp.Ttitle</h5>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+}
+else
+{
+    <div class="mx-auto p-2">
+        <h2 class="text-center">You don't have any uploads yet.</h2>
+    </div>
+
+    <div class="col">
+        <p>Upload now</p>
+        <a asp-area="" asp-controller="Wallpaper" asp-action="Add" class="btn btn-primary">Upload New Wallpaper</a>
+    </div>
+
+}

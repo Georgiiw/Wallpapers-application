@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using Wpapers.Extensions;
 using Wpapers.Services.Interfaces;
 using Wpapers.ViewModels.Wallpaper;
 
@@ -44,8 +45,7 @@ namespace Wpapers.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddWallpaperFormModel model)
         {
-            var userId = this.User.Claims
-                .FirstOrDefault(u => u.Type == ClaimTypes.NameIdentifier)?.Value;
+            var userId = this.User.Id();
             if(!ModelState.IsValid)
             {
                 throw new Exception();
@@ -60,6 +60,18 @@ namespace Wpapers.Controllers
                 throw;
             }
             return RedirectToAction("All","Wallpaper");
+        }
+        public async Task<IActionResult> MyUploads()
+        {
+            var userId = this.User.Id();
+            if(!ModelState.IsValid)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            IEnumerable<WallpaperViewModel> myUploads =
+                await this._wallpaperService.MyUploadsAsync(userId);
+
+            return View(myUploads);
         }
     }
 }

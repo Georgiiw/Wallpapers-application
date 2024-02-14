@@ -61,5 +61,26 @@ namespace Wpapers.Services
 
             return allWallpapers;
         }
+
+        public async Task<IEnumerable<WallpaperViewModel>> MyUploadsAsync(string userId)
+        {
+            IdentityUser? user = await this._dbContext.Users
+                .Where(u => u.Id == userId)
+                .FirstOrDefaultAsync();
+
+            IEnumerable<WallpaperViewModel> myUploads = await this._dbContext
+                .Wallpapers
+                .Where(w => w.UploaderId == user.Id)
+                .Select(w => new WallpaperViewModel
+                {
+                    Id = w.Id,
+                    Ttitle = w.Title,
+                    ImagePath = w.ImagePath,
+                    UploaderId = w.UploaderId,
+                    UploaderName = w.UploaderName,
+                }).ToListAsync();
+
+               return myUploads;
+        }
     }
 }

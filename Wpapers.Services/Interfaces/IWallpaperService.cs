@@ -11,5 +11,6 @@ namespace Wpapers.Services.Interfaces
     {
         Task<IEnumerable<WallpaperViewModel>> AllWpAsync();
         Task AddWallpaperAsync(AddWallpaperFormModel model, string userId);
+        Task <IEnumerable<WallpaperViewModel>> MyUploadsAsync(string userId);
     }
 }
