@@ -1,15 +1,26 @@
 ﻿@model IEnumerable<WallpaperViewModel>
-
-    @if (Model.Any())
+<div class="mx-auto p-2">
+    <h2 class="text-center">All Wallpapers:</h2>
+</div>
+@if (Model.Any())
 {
-    <h5>All Wallpapers:
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach (var wp in Model)
         {
-            <img src="@wp.ImagePath" title="@wp.Ttitle">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="@wp.ImagePath">
+                    <div class="card-body">
+                        <h5 class="card-title">@wp.Ttitle</h5>
+                    </div>
+                </div>
+            </div>
         }
-    </h5>
+    </div>
+
 }
 else
 {
-    <h5>No wallpapers yet! Coming soon!</h5>  
+    <h5>No wallpapers yet! Coming soon!</h5>
 }
