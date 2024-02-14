@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Wpapers.Services.Interfaces;
 using Wpapers.ViewModels.Wallpaper;
 
 namespace Wpapers.Controllers
 {
+    [Authorize]
     public class WallpaperController : Controller
     {
         private readonly IWallpaperService _wallpaperService;
@@ -12,6 +14,7 @@ namespace Wpapers.Controllers
         {
             this._wallpaperService = wallpaperService;
         }
+        [AllowAnonymous]
         public async Task<IActionResult> All()
         {
             if (!ModelState.IsValid)
