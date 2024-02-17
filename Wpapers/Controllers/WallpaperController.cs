@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.IO.Pipes;
 using System.Security.Claims;
 using Wpapers.Extensions;
 using Wpapers.Services.Interfaces;
@@ -11,9 +12,12 @@ namespace Wpapers.Controllers
     public class WallpaperController : Controller
     {
         private readonly IWallpaperService _wallpaperService;
-        public WallpaperController(IWallpaperService wallpaperService)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public WallpaperController(IWallpaperService wallpaperService, IWebHostEnvironment webHostEnvironment)
         {
             this._wallpaperService = wallpaperService;
+            _webHostEnvironment = webHostEnvironment;
+
         }
 
         [AllowAnonymous]
@@ -47,15 +51,23 @@ namespace Wpapers.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Add(AddWallpaperFormModel model)
+        public async Task<IActionResult> Add(AddWallpaperFormModel model, IFormFile? file)
         {
             var userId = this.User.Id();
-            if(!ModelState.IsValid)
-            {
-                throw new Exception();
-            }
             try
             {
+                string imageRoot = _webHostEnvironment.WebRootPath;
+                if (file != null)
+                {
+                    string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                    string wallpaperPath = Path.Combine(imageRoot, @"images\wallpaper");
+
+                    using (var fileStream = new FileStream(Path.Combine(wallpaperPath, fileName), FileMode.Create))
+                    {
+                        file.CopyTo(fileStream);
+                    }
+                    model.ImagePath = @"\images\wallpaper\" + fileName;
+                }
                 await this._wallpaperService.AddWallpaperAsync(model, userId);
             }
             catch (Exception)
@@ -63,7 +75,7 @@ namespace Wpapers.Controllers
 
                 throw;
             }
-            return RedirectToAction("All","Wallpaper");
+            return RedirectToAction("MyUploads","Wallpaper");
         }
         public async Task<IActionResult> MyUploads()
         {

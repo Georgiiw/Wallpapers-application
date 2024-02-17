@@ -13,8 +13,8 @@ namespace Wpapers.Data.Models
         [Required]
         [MaxLength(TitleMaxLength)]
         public string Title { get; set; } = null!;
-        [Required]
-        public string ImagePath { get; set; } = null!;
+        
+        public string ?ImagePath { get; set; }
         [ForeignKey(nameof(Uploader))]
         public string UploaderId { get; set; }
         [Required]

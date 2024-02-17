@@ -11,7 +11,7 @@
 	</h4>
 </div>
 <div class="row">
-	<form asp-action="Add" method="post">
+	<form asp-action="Add" method="post" enctype="multipart/form-data">
 
 		<div class="mb-3">
 			<label asp-for="Title" class="form-label">Title</label>
@@ -20,8 +20,8 @@
 		</div>
 		<div class="mb-3">
 			<label asp-for="ImagePath" class="form-label">ImagePath</label>
-			<input asp-for="ImagePath" class="form-control" aria-required="true">
-			<span asp-validation-for="ImagePath" class="text-danger"></span>
+			<input type="file" name="file" class="form-control" aria-required="true">
+			
 		</div>
 		
 

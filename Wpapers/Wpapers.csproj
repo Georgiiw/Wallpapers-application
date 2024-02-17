@@ -20,4 +20,8 @@
     <ProjectReference Include="..\Wpapers.Services\Wpapers.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\wallpaper\" />
+  </ItemGroup>
+
 </Project>

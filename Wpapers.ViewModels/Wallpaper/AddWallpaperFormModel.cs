@@ -5,8 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 using static Wpapers.Common.EntityValidationsConstants.WallpapersValidations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.CompilerServices;
 
 namespace Wpapers.ViewModels.Wallpaper
 {
@@ -14,6 +16,7 @@ namespace Wpapers.ViewModels.Wallpaper
     {
         [StringLength(TitleMaxLength, MinimumLength = TitleMinLength)]
         public string Title { get; set; } = null!;
+ 
         public string ImagePath { get; set; } = null!;
         
     }

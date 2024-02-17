@@ -41,7 +41,7 @@ namespace Wpapers.Services
                 UploaderName = user.UserName,
                 UploaderId = user.Id,
                 ImagePath = model.ImagePath,
-                
+
             };
             await this._dbContext.AddAsync(wp);
             await this._dbContext.SaveChangesAsync();
