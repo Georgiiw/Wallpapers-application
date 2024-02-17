@@ -15,18 +15,22 @@ namespace Wpapers.Controllers
         {
             this._wallpaperService = wallpaperService;
         }
+
         [AllowAnonymous]
-        public async Task<IActionResult> All()
+        public async Task<IActionResult> All([FromQuery] WallpaperQueryModel model, int page = 1)
         {
             if (!ModelState.IsValid)
             {
                 return RedirectToAction("Index", "Home");
             }
+            WallpaperQueryModel serviceModel =
+                await _wallpaperService.AllAsync(model, page);
+            model.Wallpapers = serviceModel.Wallpapers;
+            model.TotalWallpapers = serviceModel.TotalWallpapersCount;
+            model.Pages = (int)Math.Ceiling((double)model.TotalWallpapers / model.PageSize);
 
-            IEnumerable<WallpaperViewModel> allWallpapers =
-                await this._wallpaperService.AllWpAsync();
+            return View(model);
 
-            return View(allWallpapers);
         }
 
         public IActionResult Add()

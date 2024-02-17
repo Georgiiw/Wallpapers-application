@@ -9,7 +9,7 @@ namespace Wpapers.Services.Interfaces
 {
     public interface IWallpaperService
     {
-        Task<IEnumerable<WallpaperViewModel>> AllWpAsync();
+        Task<WallpaperQueryModel> AllAsync(WallpaperQueryModel model, int page);
         Task AddWallpaperAsync(AddWallpaperFormModel model, string userId);
         Task <IEnumerable<WallpaperViewModel>> MyUploadsAsync(string userId);
     }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Azure;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Abstractions;
 using System;
@@ -46,10 +47,20 @@ namespace Wpapers.Services
             await this._dbContext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<WallpaperViewModel>> AllWpAsync()
+     
+
+        public async Task<WallpaperQueryModel> AllAsync(WallpaperQueryModel model, int page)
         {
-            IEnumerable<WallpaperViewModel> allWallpapers = await _dbContext
-                .Wallpapers
+            IQueryable<Wallpaper> wallpaperQuery = this._dbContext.Wallpapers.AsQueryable();
+
+            model.PageSize = 2;
+            model.CurrentPage = page;
+            model.Pages = (int)Math.Ceiling((double)model.TotalWallpapers /
+                model.PageSize);
+
+            IEnumerable<WallpaperViewModel> allWallpapers = await wallpaperQuery
+                .Skip((model.CurrentPage - 1) * model.PageSize)
+                .Take(model.PageSize)
                 .Select(w => new WallpaperViewModel
                 {
                     Id = w.Id,
@@ -57,9 +68,19 @@ namespace Wpapers.Services
                     ImagePath = w.ImagePath,
                     UploaderId = w.UploaderId,
                     UploaderName = w.UploaderName,
-                }).ToListAsync();
+                })
+                .ToListAsync();
 
-            return allWallpapers;
+            int totalWallpapers = wallpaperQuery.Count();
+
+
+            var wallpapers = new WallpaperQueryModel
+            {              
+                Wallpapers = allWallpapers,
+                TotalWallpapersCount = totalWallpapers
+            };
+
+            return wallpapers;
         }
 
         public async Task<IEnumerable<WallpaperViewModel>> MyUploadsAsync(string userId)
