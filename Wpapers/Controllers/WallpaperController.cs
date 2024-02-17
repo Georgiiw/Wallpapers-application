@@ -77,5 +77,19 @@ namespace Wpapers.Controllers
 
             return View(myUploads);
         }
+
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+            try
+            {
+                await this._wallpaperService.DeleteWallpaperAsync(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return RedirectToAction("MyUploads", "Wallpaper");
+        }
     }
 }

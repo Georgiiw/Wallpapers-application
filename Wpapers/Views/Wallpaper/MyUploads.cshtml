@@ -16,9 +16,29 @@
                     <img src="@wp.ImagePath">
                     <div class="card-body">
                         <h5 class="card-title">@wp.Ttitle</h5>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal-@wp.Id">
+                            Delete
+                        </button>
                     </div>
                 </div>
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="deleteModal-@wp.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure you want to delete image: @wp.Ttitle</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <a asp-controller="Wallpaper" asp-action="Delete" asp-route-id="@wp.Id"
+                               class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
         }
     </div>
 
@@ -28,10 +48,9 @@ else
     <div class="mx-auto p-2">
         <h2 class="text-center">You don't have any uploads yet.</h2>
     </div>
-
+}
     <div class="col">
-        <p>Upload now</p>
+        <p>Upload now:</p>
         <a asp-area="" asp-controller="Wallpaper" asp-action="Add" class="btn btn-primary">Upload New Wallpaper</a>
     </div>
 
-}

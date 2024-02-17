@@ -54,9 +54,7 @@ namespace Wpapers.Services
             IQueryable<Wallpaper> wallpaperQuery = this._dbContext.Wallpapers.AsQueryable();
 
             model.PageSize = 2;
-            model.CurrentPage = page;
-            model.Pages = (int)Math.Ceiling((double)model.TotalWallpapers /
-                model.PageSize);
+            model.CurrentPage = page;          
 
             IEnumerable<WallpaperViewModel> allWallpapers = await wallpaperQuery
                 .Skip((model.CurrentPage - 1) * model.PageSize)
@@ -81,6 +79,18 @@ namespace Wpapers.Services
             };
 
             return wallpapers;
+        }
+
+        public async Task DeleteWallpaperAsync(int wallpaperId )
+        {
+ 
+            Wallpaper wallpaper = await this._dbContext.Wallpapers
+                .Where(w => w.Id == wallpaperId)
+                .FirstOrDefaultAsync();
+
+             this._dbContext.Remove(wallpaper);
+            await this._dbContext.SaveChangesAsync();
+
         }
 
         public async Task<IEnumerable<WallpaperViewModel>> MyUploadsAsync(string userId)
