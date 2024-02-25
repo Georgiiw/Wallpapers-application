@@ -8,7 +8,7 @@
         <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
             style="background-color:rgb(232, 219, 224); border: 0px solid;" aria-expanded="false">
-                Hello @User.Identity.Name
+                Hello @UserManager.GetUserName(User)
             </button>
             <ul class="dropdown-menu">
                 <li >

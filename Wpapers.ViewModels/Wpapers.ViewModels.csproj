@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Wpapers.Common\Wpapers.Common.csproj" />
+    <ProjectReference Include="..\Wpapers.Data.Models\Wpapers.Data.Models.csproj" />
   </ItemGroup>
 
 </Project>

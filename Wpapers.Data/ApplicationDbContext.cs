@@ -13,6 +13,7 @@ namespace Wpapers.Data
         }
 
         public DbSet<Wallpaper> Wallpapers { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
