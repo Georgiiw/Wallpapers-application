@@ -24,7 +24,7 @@ namespace Wpapers.Services
 
         public async Task AddWallpaperAsync(AddWallpaperFormModel model, string userId)
         {
-            IdentityUser? user = await this._dbContext.Users
+            ApplicationUser? user = await this._dbContext.Users
                 .Where(u => u.Id.ToString() == userId)
                 .FirstOrDefaultAsync();
 
@@ -38,7 +38,7 @@ namespace Wpapers.Services
             {
                 Title = model.Title,
                 Uploader = user,
-                UploaderName = user.UserName,
+                UploaderName = user.Name,
                 UploaderId = user.Id,
                 ImagePath = model.ImagePath,
 
@@ -95,7 +95,7 @@ namespace Wpapers.Services
 
         public async Task<IEnumerable<WallpaperViewModel>> MyUploadsAsync(string userId)
         {
-            IdentityUser? user = await this._dbContext.Users
+            ApplicationUser? user = await this._dbContext.Users
                 .Where(u => u.Id == userId)
                 .FirstOrDefaultAsync();
 

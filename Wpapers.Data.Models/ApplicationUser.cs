@@ -9,10 +9,7 @@ using static Wpapers.Common.EntityValidationsConstants.ApplicationUserValidation
 namespace Wpapers.Data.Models
 {
     public class ApplicationUser : IdentityUser
-    {
-        [Required]
-        [MaxLength(UserNameMaxLength)]
-        public string UserName { get; set; }
+    {     
         [MaxLength(NameMaxLength)]
         public string? Name { get; set; }
     }

@@ -1,12 +1,13 @@
 ﻿@model AddWallpaperFormModel
 @using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
+@using Wpapers.Data.Models
+@inject SignInManager<ApplicationUser> SignInManager
 
 @{
 	ViewBag.Title = "Upload new wallpaper";
 }
 <div class="mb-3">
-	<h4>Uploader Name: @User.Identity.Name
+	<h4>Uploader Name:
 		
 	</h4>
 </div>

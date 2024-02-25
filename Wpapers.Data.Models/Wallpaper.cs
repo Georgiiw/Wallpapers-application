@@ -18,7 +18,7 @@ namespace Wpapers.Data.Models
         [ForeignKey(nameof(Uploader))]
         public string UploaderId { get; set; }
         [Required]
-        public IdentityUser Uploader { get; set; } = null!;
+        public ApplicationUser Uploader { get; set; } = null!;
         [Required]
         public string UploaderName { get; set; } = null!;
 
