@@ -26,7 +26,7 @@ namespace Wpapers
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddRazorPages();
             builder.Services.AddScoped<IWallpaperService, WallpaperService>();
 
             var app = builder.Build();
@@ -47,9 +47,10 @@ namespace Wpapers
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
+            app.MapRazorPages();
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");

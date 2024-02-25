@@ -19,7 +19,8 @@ html {
 
 body {
     margin-bottom: 60px;
-    background-color: rgb(232, 219, 224);
+    /*background-color: rgb(232, 219, 224);*/
+    background-color: black;
 }
 header{
     padding: 10px;

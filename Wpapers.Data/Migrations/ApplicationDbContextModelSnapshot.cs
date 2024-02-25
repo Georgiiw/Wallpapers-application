@@ -252,7 +252,7 @@ namespace Wpapers.Data.Migrations
 
                     b.HasIndex("UploaderId");
 
-                    b.ToTable("Wallpapers");
+                    b.ToTable("Wallpapers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

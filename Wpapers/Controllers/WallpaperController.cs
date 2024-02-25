@@ -59,7 +59,9 @@ namespace Wpapers.Controllers
                 string imageRoot = _webHostEnvironment.WebRootPath;
                 if (file != null)
                 {
+                    //Makes guid + file extension for our file name
                     string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                    //Combines our root path with our file folder location
                     string wallpaperPath = Path.Combine(imageRoot, @"images\wallpaper");
 
                     using (var fileStream = new FileStream(Path.Combine(wallpaperPath, fileName), FileMode.Create))
