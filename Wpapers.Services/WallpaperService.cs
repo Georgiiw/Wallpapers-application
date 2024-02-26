@@ -53,7 +53,7 @@ namespace Wpapers.Services
         {
             IQueryable<Wallpaper> wallpaperQuery = this._dbContext.Wallpapers.AsQueryable();
 
-            model.PageSize = 2;
+            model.PageSize = 6;
             model.CurrentPage = page;          
 
             IEnumerable<WallpaperViewModel> allWallpapers = await wallpaperQuery

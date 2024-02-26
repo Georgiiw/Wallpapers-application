@@ -6,8 +6,8 @@
 @{
 	ViewBag.Title = "Upload new wallpaper";
 }
-<div class="mb-3">
-	<h4>Uploader Name:
+<div class="mb-3" style="color: white">
+	<h4>Upload now:
 		
 	</h4>
 </div>
@@ -15,13 +15,14 @@
 	<form asp-action="Add" method="post" enctype="multipart/form-data">
 
 		<div class="mb-3">
-			<label asp-for="Title" class="form-label">Title</label>
+			<label asp-for="Title" class="form-label" style="color: white">Title</label>
 			<input asp-for="Title" class="form-control" aria-required="true">
 			<span asp-validation-for="Title" class="text-danger"></span>
 		</div>
 		<div class="mb-3">
-			<label asp-for="ImagePath" class="form-label">ImagePath</label>
+			<label asp-for="ImagePath" class="form-label" style="color: white">Image</label>
 			<input type="file" name="file" class="form-control" aria-required="true">
+			<span asp-validation-for="ImagePath" class="text-danger"></span>
 			
 		</div>
 		

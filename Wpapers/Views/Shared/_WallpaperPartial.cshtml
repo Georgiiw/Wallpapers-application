@@ -2,7 +2,7 @@
 
 
 
-<div class="col">
+@* <div class="col">
     <div class="card h-100">
         <img src="@Model.ImagePath">
         <div class="card-body">
@@ -10,5 +10,15 @@
             <h4>By: @Model.UploaderName</h4>
         </div>
     </div>
+</div> *@
+
+<div class="img-box">
+	<img src="@Model.ImagePath" title="Details">
+	<div class="transparent-box">
+		<div class="caption">
+			<p>@Model.Ttitle</p>
+            <h4>By: @Model.UploaderName</h4>
+		</div>
+	</div>
 </div>
 
