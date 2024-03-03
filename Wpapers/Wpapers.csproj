@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Wpapers.Common\Wpapers.Common.csproj" />
     <ProjectReference Include="..\Wpapers.Data\Wpapers.Data.csproj" />
     <ProjectReference Include="..\Wpapers.Services\Wpapers.Services.csproj" />
   </ItemGroup>

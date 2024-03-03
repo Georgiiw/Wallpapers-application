@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Wpapers.Data;
 using Wpapers.Data.Models;
 using Wpapers.Services;
 using Wpapers.Services.Interfaces;
+using Wpapers.Common;
 
 namespace Wpapers
 {
@@ -19,16 +21,18 @@ namespace Wpapers
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             { 
-                options.SignIn.RequireConfirmedAccount = true;               
+                options.SignIn.RequireConfirmedAccount = false;               
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
             })
+                .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
             builder.Services.AddScoped<IWallpaperService, WallpaperService>();
+            builder.Services.AddScoped<IEmailSender, EmailSender>();
 
             var app = builder.Build();
 
