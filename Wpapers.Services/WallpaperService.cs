@@ -38,7 +38,7 @@ namespace Wpapers.Services
             {
                 Title = model.Title,
                 Uploader = user,
-                UploaderName = user.Name,
+                UploaderName = user.Nickname,
                 UploaderId = user.Id,
                 ImagePath = model.ImagePath,
 
@@ -64,7 +64,7 @@ namespace Wpapers.Services
                     Id = w.Id,
                     Ttitle = w.Title,
                     ImagePath = w.ImagePath,
-                    UploaderId = w.UploaderId,
+                    UploaderId = w.UploaderId.ToString(),
                     UploaderName = w.UploaderName,
                 })
                 .ToListAsync();
@@ -96,7 +96,7 @@ namespace Wpapers.Services
         public async Task<IEnumerable<WallpaperViewModel>> MyUploadsAsync(string userId)
         {
             ApplicationUser? user = await this._dbContext.Users
-                .Where(u => u.Id == userId)
+                .Where(u => u.Id.ToString() == userId)
                 .FirstOrDefaultAsync();
 
             IEnumerable<WallpaperViewModel> myUploads = await this._dbContext
@@ -107,7 +107,7 @@ namespace Wpapers.Services
                     Id = w.Id,
                     Ttitle = w.Title,
                     ImagePath = w.ImagePath,
-                    UploaderId = w.UploaderId,
+                    UploaderId = w.UploaderId.ToString(),
                     UploaderName = w.UploaderName,
                 }).ToListAsync();
 

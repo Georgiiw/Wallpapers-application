@@ -9,7 +9,7 @@
 </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        @foreach (var wp in Model.Where(u => u.UploaderId == User.FindFirst(ClaimTypes.NameIdentifier)?.Value))
+        @foreach (var wp in Model.Where(u => u.UploaderId.ToLower() == User.Id()))
         {
             <div class="col">
                 <div class="card h-100">

@@ -21,12 +21,13 @@ namespace Wpapers
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
             { 
                 options.SignIn.RequireConfirmedAccount = false;               
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
             })
+                .AddRoles<IdentityRole<Guid>>()
                 .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();

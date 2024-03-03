@@ -9,8 +9,10 @@
         }
         public static class ApplicationUserValidations
         {
-            public const int UserNameMaxLength = 20;
-            public const int NameMaxLength = 20;
+            public const int NicknameMinLength = 2;
+            public const int NicknameMaxLength = 20;          
+            public const int PasswordMinLength = 6;
+            public const int PasswordMaxLength = 50;
         }
     }
 }
