@@ -5,14 +5,14 @@ using Wpapers.Data.Models;
 
 namespace Wpapers.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
 
-        public DbSet<Wallpaper> Wallpapers { get; set; }
+        public DbSet<Wallpaper> Wallpapers { get; set; }  = null!;  
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)

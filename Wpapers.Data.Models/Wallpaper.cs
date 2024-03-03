@@ -12,13 +12,12 @@ namespace Wpapers.Data.Models
         public int Id { get; set; }
         [Required]
         [MaxLength(TitleMaxLength)]
-        public string Title { get; set; } = null!;
-        
+        public string Title { get; set; } = null!;     
         public string ?ImagePath { get; set; }
-        [ForeignKey(nameof(Uploader))]
-        public string UploaderId { get; set; }
+        //[ForeignKey(nameof(Uploader))]
+        public Guid UploaderId { get; set; }
         [Required]
-        public ApplicationUser Uploader { get; set; } = null!;
+        public virtual ApplicationUser Uploader { get; set; } = null!;
         [Required]
         public string UploaderName { get; set; } = null!;
 
