@@ -2,6 +2,17 @@
 @{
     <h2 style="text-align:center;padding: 10px; color: white;">All Wallpapers</h2>
 }
+<div class="row">
+    <div class="col-md-6">
+        <form class="d-flex" asp-action="All" asp-controller="Wallpaper">
+            <input name="searchString" class="form-control-me1" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-dark" type="submit">Search by Ttitle</button>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <a asp-action="All" class="text-dark">Back to All</a>
+    </div>
+</div>
 <div class="col">
     <div class="wallpapers">
         @foreach (var wp in Model.Wallpapers)
@@ -14,7 +25,7 @@
     <nav aria-label="Page navigation" style="align-content:center; padding: 20px;">
         <ul class="pagination">
             <li class="page-item @(Model.CurrentPage > 1 ? "" : "disabled")">
-                <a class="page-link" href="@Url.Action("All", new { page = Model.CurrentPage - 1 })" aria-label="Previous">
+                <a class="page-link" href="/Wallpaper/All?page=@(Model.CurrentPage - 1)" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                     <span>Previous</span>
                 </a>
@@ -23,12 +34,12 @@
             @for (int i = 1; i <= Model.Pages; i++)
             {
                 <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                    <a class="page-link" href="@Url.Action("All", new { page = i })">@i</a>
+                    <a class="page-link" href="/Wallpaper/All?page=@i">@i</a>
                 </li>
             }
 
             <li class="page-item @(Model.CurrentPage < Model.Pages ? "" : "disabled")">
-                <a class="page-link" href="@Url.Action("All", new { page = Model.CurrentPage + 1})" aria-label="Next">
+                <a class="page-link" href="/Wallpaper/All?page=@(Model.CurrentPage + 1)" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     <span>Next</span>
                 </a>

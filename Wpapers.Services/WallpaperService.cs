@@ -49,14 +49,22 @@ namespace Wpapers.Services
 
      
 
-        public async Task<WallpaperQueryModel> AllAsync(WallpaperQueryModel model, int page)
+        public async Task<WallpaperQueryModel> AllAsync(WallpaperQueryModel model, int page, string searchString)
         {
             IQueryable<Wallpaper> wallpaperQuery = this._dbContext.Wallpapers.AsQueryable();
 
-            model.PageSize = 6;
-            model.CurrentPage = page;          
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                wallpaperQuery = wallpaperQuery.Where(w => w.Title.ToLower().Contains(searchString));
+            }
 
-            IEnumerable<WallpaperViewModel> allWallpapers = await wallpaperQuery
+            int totalWallpapers = wallpaperQuery.Count();
+            model.PageSize = 2;
+            model.CurrentPage = page;
+                   
+           
+
+            IEnumerable<WallpaperViewModel> allWallpapersPaged = await wallpaperQuery
                 .Skip((model.CurrentPage - 1) * model.PageSize)
                 .Take(model.PageSize)
                 .Select(w => new WallpaperViewModel
@@ -67,17 +75,15 @@ namespace Wpapers.Services
                     UploaderId = w.UploaderId.ToString(),
                     UploaderName = w.UploaderName,
                 })
-                .ToListAsync();
-
-            int totalWallpapers = wallpaperQuery.Count();
-
-
+                .ToListAsync();       
+            
             var wallpapers = new WallpaperQueryModel
             {              
-                Wallpapers = allWallpapers,
+
+                Wallpapers = allWallpapersPaged,
                 TotalWallpapersCount = totalWallpapers
             };
-
+      
             return wallpapers;
         }
 

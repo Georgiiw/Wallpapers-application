@@ -18,6 +18,7 @@ namespace Wpapers.ViewModels.Wallpaper
         public int TotalWallpapers { get; set; }
         public int PageSize { get; set; }
         public int TotalWallpapersCount { get; set; }
+        public string? SearchString { get; set; }
 
     }
 }
