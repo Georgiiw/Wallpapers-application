@@ -81,7 +81,8 @@ namespace Wpapers.Services
             {              
 
                 Wallpapers = allWallpapersPaged,
-                TotalWallpapersCount = totalWallpapers
+                TotalWallpapersCount = totalWallpapers,
+                SearchString = searchString
             };
       
             return wallpapers;

@@ -2,16 +2,13 @@
 @{
     <h2 style="text-align:center;padding: 10px; color: white;">All Wallpapers</h2>
 }
-<div class="row">
-    <div class="col-md-6">
-        <form class="d-flex" asp-action="All" asp-controller="Wallpaper">
+<div class="row" style="justify-content:center">
+    <div class="col-md-6" style="justify-content:center; display:flex;">
+        <form method="get" class="d-flex" asp-action="All" asp-controller="Wallpaper">
             <input name="searchString" class="form-control-me1" type="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-dark" type="submit">Search by Ttitle</button>
         </form>
-    </div>
-    <div class="col-md-6">
-        <a asp-action="All" class="text-dark">Back to All</a>
-    </div>
+    </div>   
 </div>
 <div class="col">
     <div class="wallpapers">
@@ -22,10 +19,10 @@
     </div>
 </div>
 <div class="text-center">
-    <nav aria-label="Page navigation" style="align-content:center; padding: 20px;">
+    <nav  aria-label="Page navigation" style="justify-content:center; padding: 20px; display:flex">
         <ul class="pagination">
             <li class="page-item @(Model.CurrentPage > 1 ? "" : "disabled")">
-                <a class="page-link" href="/Wallpaper/All?page=@(Model.CurrentPage - 1)" aria-label="Previous">
+                <a class="page-link" href="/Wallpaper/All?searchString=@(Model.SearchString)&page=@(Model.CurrentPage - 1)" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                     <span>Previous</span>
                 </a>
@@ -34,12 +31,12 @@
             @for (int i = 1; i <= Model.Pages; i++)
             {
                 <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
-                    <a class="page-link" href="/Wallpaper/All?page=@i">@i</a>
+                    <a class="page-link" href="/Wallpaper/All?searchString=@(Model.SearchString)&page=@i">@i</a>
                 </li>
             }
 
             <li class="page-item @(Model.CurrentPage < Model.Pages ? "" : "disabled")">
-                <a class="page-link" href="/Wallpaper/All?page=@(Model.CurrentPage + 1)" aria-label="Next">
+                <a class="page-link" href="/Wallpaper/All?searchString=@(Model.SearchString)&page=@(Model.CurrentPage + 1)" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     <span>Next</span>
                 </a>
