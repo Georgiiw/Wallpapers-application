@@ -100,6 +100,28 @@ namespace Wpapers.Services
 
         }
 
+        public async Task<bool> ExistsByIdAsync(string id)
+        {
+            bool exists = await this._dbContext.Wallpapers
+                .AnyAsync(w => w.Id.ToString() == id);
+            return exists;
+        }
+
+        public async Task<WallpaperViewModel> GetDetailsByIdAsync(string id)
+        {
+            Wallpaper wallpaper = await this._dbContext.Wallpapers
+                .FirstAsync(w => w.Id.ToString() == id);
+            WallpaperViewModel model = new WallpaperViewModel
+            {
+                Id = wallpaper.Id,
+                ImagePath = wallpaper.ImagePath,
+                Ttitle = wallpaper.Title,
+                UploaderName = wallpaper.UploaderName,
+                UploaderId = wallpaper.UploaderId.ToString()
+            };
+            return model;
+        }
+
         public async Task<IEnumerable<WallpaperViewModel>> MyUploadsAsync(string userId)
         {
             ApplicationUser? user = await this._dbContext.Users

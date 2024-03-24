@@ -13,5 +13,7 @@ namespace Wpapers.Services.Interfaces
         Task AddWallpaperAsync(AddWallpaperFormModel model, string userId);
         Task <IEnumerable<WallpaperViewModel>> MyUploadsAsync(string userId);
         Task DeleteWallpaperAsync(int wallpaperId);
+        Task<bool> ExistsByIdAsync(string id);
+        Task<WallpaperViewModel> GetDetailsByIdAsync(string id);
     }
 }
