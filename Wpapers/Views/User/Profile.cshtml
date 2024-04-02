@@ -1,0 +1,13 @@
+﻿@model UserProfileViewModel
+<h1 style="color:white;">All uploads by @Model.User.Nickname - @Model.Wallpapers.Count()</h1>
+
+
+<div class="wallpapers">
+    @foreach (var wallpaper in Model.Wallpapers)
+    {
+        <div class="img-box">
+            <img src="@wallpaper.ImagePath" title="Details">
+        </div>
+    }
+</div>
+

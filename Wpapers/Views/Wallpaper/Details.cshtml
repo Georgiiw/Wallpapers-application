@@ -1,9 +1,13 @@
 ﻿@model WallpaperViewModel
 
 <div>
-	<h2 class="text-center" style="color: white">By @Model.UploaderName: @Model.Ttitle</h2>
-	<a href="@Model.ImagePath" download="@Model.Ttitle">
-		<button class="btn">Download Wallpaper</button>
-	</a>
-	<img class="d-block w-100" id="wallpaperDetails" src="@Model.ImagePath">
+    <h2 class="text-center" style="color: white">By @Model.UploaderName: @Model.Ttitle</h2>
+    <h2 style="color: white">
+     View more wallpapers by this user
+     <a class="" text-dark" asp-area="" asp-controller="User" asp-action="Profile" asp-route-id="@Model.Id">here</a>
+    </h2>
+    <a href="@Model.ImagePath" download="@Model.Ttitle">
+        <button class="btn">Download Wallpaper</button>
+    </a>
+    <img class="d-block w-100" id="wallpaperDetails" src="@Model.ImagePath">
 </div>

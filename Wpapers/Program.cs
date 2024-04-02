@@ -33,6 +33,7 @@ namespace Wpapers
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
             builder.Services.AddScoped<IWallpaperService, WallpaperService>();
+            builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IEmailSender, EmailSender>();
 
             var app = builder.Build();

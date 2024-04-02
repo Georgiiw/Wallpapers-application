@@ -4,19 +4,23 @@ using Microsoft.AspNetCore.Mvc;
 using Wpapers.Data.Models;
 using Wpapers.ViewModels.User;
 using Microsoft.AspNetCore.Authentication;
+using Wpapers.Services.Interfaces;
+using Wpapers.Extensions;
 
 namespace Wpapers.Controllers
 {
     public class UserController : BaseController
     {
+        private readonly IUserService _userService;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
         public UserController(UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager, IUserService userService)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
+            this._userService = userService;
         }
         public IActionResult Register()
         {
@@ -83,6 +87,20 @@ namespace Wpapers.Controllers
             await this._signInManager.SignOutAsync();
 
             return this.RedirectToAction("Index", "Home");
+        }
+        public async Task<IActionResult> Profile(string id)
+        {
+            try
+            {
+                UserProfileViewModel model = await this._userService.GetUserProfile(id);
+                return this.View(model);
+
+            }
+            catch (Exception)
+            {
+
+              return RedirectToAction("Index", "Home");
+            }
         }
     }
 }
