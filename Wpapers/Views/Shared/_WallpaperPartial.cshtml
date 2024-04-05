@@ -12,7 +12,7 @@
     </div>
 </div> *@
 
-<a asp-controller="Wallpaper" asp-action="Details" asp-route-id="@Model.Id">
+<a data-bs-toggle="modal" data-bs-target="#wallpaperModal-@Model.Id">
     <div class="img-box">
         <img src="@Model.ImagePath" title="Details">
         <div class="transparent-box">
@@ -23,5 +23,28 @@
         </div>
     </div>
 </a>
+
+<div class="modal fade" id="wallpaperModal-@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">   
+                <h2 class="text-center" style="color: white">By @Model.UploaderName: @Model.Ttitle</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img class="d-block w-100" id="wallpaperDetails" src="@Model.ImagePath">
+            </div>
+            <div class="modal-footer">
+                <a href="@Model.ImagePath" download="@Model.Ttitle">
+                    <button class="btn">Download Wallpaper</button>
+                </a>
+                <h2 style="color: white">
+                    View more wallpapers by this user
+                    <a class="" text-dark" asp-area="" asp-controller="User" asp-action="Profile" asp-route-id="@Model.Id">here</a>
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
 
 

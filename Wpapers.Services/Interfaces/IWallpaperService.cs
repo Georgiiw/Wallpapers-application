@@ -14,6 +14,6 @@ namespace Wpapers.Services.Interfaces
         Task <IEnumerable<WallpaperViewModel>> MyUploadsAsync(string userId);
         Task DeleteWallpaperAsync(int wallpaperId);
         Task<bool> ExistsByIdAsync(string id);
-        Task<WallpaperViewModel> GetDetailsByIdAsync(string id);
+        //Task<WallpaperViewModel> GetDetailsByIdAsync(string id);
     }
 }

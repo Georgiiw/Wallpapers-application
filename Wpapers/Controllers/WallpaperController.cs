@@ -105,20 +105,20 @@ namespace Wpapers.Controllers
             }
             return RedirectToAction("MyUploads", "Wallpaper");
         }
-        [AllowAnonymous]
-        public async Task<IActionResult> Details(string id)
-        {
-            try
-            {
-                WallpaperViewModel model = await _wallpaperService
-                    .GetDetailsByIdAsync(id);
+        //[AllowAnonymous]
+        //public async Task<IActionResult> Details(string id)
+        //{
+        //    try
+        //    {
+        //        WallpaperViewModel model = await _wallpaperService
+        //            .GetDetailsByIdAsync(id);
 
-                return View(model);
-            }
-            catch (Exception)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-        }
+        //        return View(model);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //}
     }
 }

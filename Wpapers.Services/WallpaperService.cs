@@ -59,7 +59,7 @@ namespace Wpapers.Services
             }
 
             int totalWallpapers = wallpaperQuery.Count();
-            model.PageSize = 2;
+            model.PageSize = 5;
             model.CurrentPage = page;
                    
            
@@ -107,20 +107,20 @@ namespace Wpapers.Services
             return exists;
         }
 
-        public async Task<WallpaperViewModel> GetDetailsByIdAsync(string id)
-        {
-            Wallpaper wallpaper = await this._dbContext.Wallpapers
-                .FirstAsync(w => w.Id.ToString() == id);
-            WallpaperViewModel model = new WallpaperViewModel
-            {
-                Id = wallpaper.Id,
-                ImagePath = wallpaper.ImagePath,
-                Ttitle = wallpaper.Title,
-                UploaderName = wallpaper.UploaderName,
-                UploaderId = wallpaper.UploaderId.ToString()
-            };
-            return model;
-        }
+        //public async Task<WallpaperViewModel> GetDetailsByIdAsync(string id)
+        //{
+        //    Wallpaper wallpaper = await this._dbContext.Wallpapers
+        //        .FirstAsync(w => w.Id.ToString() == id);
+        //    WallpaperViewModel model = new WallpaperViewModel
+        //    {
+        //        Id = wallpaper.Id,
+        //        ImagePath = wallpaper.ImagePath,
+        //        Ttitle = wallpaper.Title,
+        //        UploaderName = wallpaper.UploaderName,
+        //        UploaderId = wallpaper.UploaderId.ToString()
+        //    };
+        //    return model;
+        //}
 
         public async Task<IEnumerable<WallpaperViewModel>> MyUploadsAsync(string userId)
         {
