@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpapers.Data.Models", "Wpap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpapers.Common", "Wpapers.Common\Wpapers.Common.csproj", "{07DA25DD-4491-466F-B2F6-5BF98B398F72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpapers.Services", "Wpapers.Services\Wpapers.Services.csproj", "{0FCE4B34-3275-48C9-95B9-9B8A4A152151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpapers.Services", "Wpapers.Services\Wpapers.Services.csproj", "{0FCE4B34-3275-48C9-95B9-9B8A4A152151}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpapers.ViewModels", "Wpapers.ViewModels\Wpapers.ViewModels.csproj", "{A9CF49C4-2914-4D1A-9CD1-0AF290774116}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpapers.ViewModels", "Wpapers.ViewModels\Wpapers.ViewModels.csproj", "{A9CF49C4-2914-4D1A-9CD1-0AF290774116}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpapers.UnitTests", "Wpaper.UnitTests\Wpapers.UnitTests.csproj", "{BA4C9556-1424-46D5-8E49-0A2B5360DFD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{A9CF49C4-2914-4D1A-9CD1-0AF290774116}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9CF49C4-2914-4D1A-9CD1-0AF290774116}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9CF49C4-2914-4D1A-9CD1-0AF290774116}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA4C9556-1424-46D5-8E49-0A2B5360DFD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA4C9556-1424-46D5-8E49-0A2B5360DFD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA4C9556-1424-46D5-8E49-0A2B5360DFD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA4C9556-1424-46D5-8E49-0A2B5360DFD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
