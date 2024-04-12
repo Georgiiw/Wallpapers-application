@@ -5,7 +5,7 @@
 <div class="row" style="justify-content:center">
     <div class="col-md-6" style="justify-content:center; display:flex;">
         <form method="get" class="d-flex" asp-action="All" asp-controller="Wallpaper">
-            <input name="searchString" class="form-control-me1" type="search" placeholder="Search" aria-label="Search" />
+            <input name="searchString" class="form-control-me1" type="search" placeholder="@(Model.SearchString != null ? Model.SearchString : "Search")" aria-label="Search" />
             <button class="btn btn-dark" type="submit">Search by Ttitle</button>
         </form>
     </div>   
