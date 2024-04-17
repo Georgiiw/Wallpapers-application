@@ -17,7 +17,7 @@ My personal **ASP.NET Core** web application where users can upload, search for,
 ![SearchByString](https://github.com/Georgiiw/Wallpapers-application/assets/92953898/c9398735-402d-4ab0-9a67-eba3c55fb7e7)
 
 ### Details of the image
-![ImageDetails](https://github.com/Georgiiw/Wallpapers-application/assets/92953898/2072ac58-7ed0-400f-b078-d33702242c63)
+![ImageDetails2](https://github.com/Georgiiw/Wallpapers-application/assets/92953898/fa9f403f-d4a9-4dcd-a937-bd2136f29ebf)
 
 ### All uploads by the user of the selected wallpaper
 ![AllPhotosByUser](https://github.com/Georgiiw/Wallpapers-application/assets/92953898/4554942c-fd94-4ecc-a906-46295f63542f)
