@@ -30,6 +30,10 @@ namespace Wpapers
                 .AddRoles<IdentityRole<Guid>>()
                 .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.Services.ConfigureApplicationCookie(config =>
+            {
+                config.LoginPath = "/User/login";
+            });
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
             builder.Services.AddScoped<IWallpaperService, WallpaperService>();
