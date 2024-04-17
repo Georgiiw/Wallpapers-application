@@ -74,6 +74,7 @@ namespace Wpapers.Services
                     ImagePath = w.ImagePath,
                     UploaderId = w.UploaderId.ToString(),
                     UploaderName = w.UploaderName,
+                    Likes = w.Likes,
                 })
                 .ToListAsync();       
             
@@ -105,6 +106,47 @@ namespace Wpapers.Services
             bool exists = await this._dbContext.Wallpapers
                 .AnyAsync(w => w.Id.ToString() == id);
             return exists;
+        }
+
+        public async Task LikeWallpaperAsync(int wpId, string userId)
+        {
+            ApplicationUser? user = await this._dbContext.Users
+                .Where(u => u.Id.ToString() == userId)
+                .FirstOrDefaultAsync();
+            Wallpaper? wp = await this._dbContext.Wallpapers
+                .Where(w => w.Id == wpId)
+                .FirstOrDefaultAsync();
+            
+            WallpaperLikes? wpLikes = await this._dbContext.WallpaperLikes
+                .FirstOrDefaultAsync(w => w.PhotoId == wp.Id && w.UserId == user.Id);
+
+            if (wpLikes == null)
+            {
+                WallpaperLikes likes = new WallpaperLikes()
+                {
+                    PhotoId = wpId,
+                    UserId = user.Id,
+                    HasLiked = true
+                };
+                wp.Likes++;
+                await this._dbContext.WallpaperLikes.AddAsync(likes);
+                
+            }
+            else
+            {
+                if (!wpLikes.HasLiked)
+                {
+                    wp.Likes++;
+                    wpLikes.HasLiked = true;
+                }
+                else if (wpLikes.HasLiked)
+                {
+                    wp.Likes--;
+                    wpLikes.HasLiked = false;
+                }
+            }
+                    
+            await this._dbContext.SaveChangesAsync();
         }
 
         //public async Task<WallpaperViewModel> GetDetailsByIdAsync(string id)

@@ -15,5 +15,6 @@ namespace Wpapers.Services.Interfaces
         Task DeleteWallpaperAsync(int wallpaperId);
         Task<bool> ExistsByIdAsync(string id);
         //Task<WallpaperViewModel> GetDetailsByIdAsync(string id);
+        Task LikeWallpaperAsync(int wpId, string userId);
     }
 }

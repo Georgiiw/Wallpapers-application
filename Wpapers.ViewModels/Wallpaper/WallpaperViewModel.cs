@@ -13,5 +13,6 @@ namespace Wpapers.ViewModels.Wallpaper
         public string ImagePath { get; set; } = null!;
         public string UploaderId { get; set; } = null!;
         public string UploaderName { get; set; } = null!;
+        public int Likes { get; set; }
     }
 }

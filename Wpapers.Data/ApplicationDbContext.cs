@@ -14,6 +14,7 @@ namespace Wpapers.Data
 
         public DbSet<Wallpaper> Wallpapers { get; set; }  = null!;  
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<WallpaperLikes> WallpaperLikes { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

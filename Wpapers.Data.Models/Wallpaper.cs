@@ -20,6 +20,7 @@ namespace Wpapers.Data.Models
         public virtual ApplicationUser Uploader { get; set; } = null!;
         [Required]
         public string UploaderName { get; set; } = null!;
+        public int Likes { get; set; }
 
 
     }

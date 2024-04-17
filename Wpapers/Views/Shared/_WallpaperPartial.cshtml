@@ -18,7 +18,7 @@
         <div class="transparent-box">
             <div class="caption">
                 <p>@Model.Ttitle</p>
-                <h4>By: @Model.UploaderName</h4>
+                <h4>By: @Model.UploaderName </h4>
             </div>
         </div>
     </div>
@@ -42,9 +42,11 @@
                     View more wallpapers by this user
                     <a class="" text-dark" asp-area="" asp-controller="User" asp-action="Profile" asp-route-id="@Model.Id">here</a>
                 </h2>
+                <h3 style="color: white">
+                    Likes: @Model.Likes.ToString()
+                    <a class="" text-dark" asp-area="" asp-controller="Wallpaper" asp-action="Like" asp-route-id="@Model.Id"><i class="fa-regular fa-heart" style="color: #d01f0b;"></i></a>
+                </h3>
             </div>
         </div>
     </div>
 </div>
-
-

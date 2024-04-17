@@ -120,5 +120,24 @@ namespace Wpapers.Controllers
         //        return RedirectToAction("Index", "Home");
         //    }
         //}
+        public async Task<IActionResult> Like([FromRoute]int id)
+        {
+            if(!ModelState.IsValid)
+            {
+                throw new Exception("InValid ModelState");
+            }
+            var userId = this.User.Id();
+            try
+            {
+                await this._wallpaperService.LikeWallpaperAsync(id, userId);
+                return RedirectToAction("All", "Wallpaper"); 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
     }
 }
