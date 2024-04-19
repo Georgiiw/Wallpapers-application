@@ -2,14 +2,14 @@
 @{
     <h2 style="text-align:center;padding: 10px; color: white;">All Wallpapers</h2>
 }
-<div class="row" style="justify-content:center">
-    <div class="col-md-6" style="justify-content:center; display:flex;">
-        <form method="get" class="d-flex" asp-action="All" asp-controller="Wallpaper">
-            <input name="searchString" class="form-control-me1" type="search" placeholder="@(Model.SearchString != null ? Model.SearchString : "Search")" aria-label="Search" />
-            <button class="btn btn-dark" type="submit">Search by Ttitle</button>
-        </form>
-    </div>   
-</div>
+
+<form method="get" asp-action="All" asp-controller="Wallpaper">
+    <div class="search">
+        <input name="searchString" id="search-input" type="search" placeholder="@(Model.SearchString != null ? Model.SearchString : "Search")" aria-label="Search" />
+        <button id="serachButton" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+</form>
+
 <div class="col">
     <div class="wallpapers">
         @foreach (var wp in Model.Wallpapers)
@@ -19,7 +19,7 @@
     </div>
 </div>
 <div class="text-center">
-    <nav  aria-label="Page navigation" style="justify-content:center; padding: 20px; display:flex">
+    <nav aria-label="Page navigation" style="justify-content:center; padding: 20px; display:flex">
         <ul class="pagination">
             <li class="page-item @(Model.CurrentPage > 1 ? "" : "disabled")">
                 <a class="page-link" href="/Wallpaper/All?searchString=@(Model.SearchString)&page=@(Model.CurrentPage - 1)" aria-label="Previous">

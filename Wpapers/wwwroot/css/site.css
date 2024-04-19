@@ -139,6 +139,46 @@ header {
     border-bottom: unset;
 }
 .modal-footer {
-    display:contents;
+    justify-content: center;
     border-top: unset;
+}
+/*---SearchBar---*/
+.search {
+    width: max-content;
+    margin: auto;
+    align-items: center;
+    background: white;
+    padding: 14px;
+    border-radius: 20px;
+    transition: box-shadow 0.25s;
+}
+.search:focus-within{
+    box-shadow: 0 0 6px white;
+}
+#search-input {   
+    outline: none;
+    border: none;
+    background: transparent;
+}
+/*---Buttons---*/
+.button {
+    margin: auto;
+    display: block;
+    padding: 12px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 10px;
+    color: forestgreen;
+}
+.button:hover{
+    background-color: rgb(10, 10, 10);
+    transition-duration: 0.5s;
+}
+#serachButton {
+    outline: none;
+    border: none;
+    background: transparent;
+}
+a:link {
+    text-decoration: none;
 }
