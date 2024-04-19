@@ -11,13 +11,13 @@ My personal **ASP.NET Core** web application where users can upload, search for,
 ### Home page
 ![HomePage](https://github.com/Georgiiw/Wallpapers-application/assets/92953898/c258650e-34ec-471e-a5fc-6b091e37a079)
 ### All wallpapers page
-![AllWallpapers](https://github.com/Georgiiw/Wallpapers-application/assets/92953898/a8566f3f-5783-4a7e-a553-b01861b569ac)
+![AllPhotosNewSearchBar](https://github.com/Georgiiw/Wallpapers-application/assets/92953898/efd20eb2-e305-48f0-a965-6be6cb7835c5)
 
 ### Search wallpaper by name
-![SearchByString](https://github.com/Georgiiw/Wallpapers-application/assets/92953898/c9398735-402d-4ab0-9a67-eba3c55fb7e7)
+![SerchByString2](https://github.com/Georgiiw/Wallpapers-application/assets/92953898/e4d2f72c-146a-4f4b-9d2d-8292a47e37df)
 
 ### Details of the image
-![ImageDetails2](https://github.com/Georgiiw/Wallpapers-application/assets/92953898/fa9f403f-d4a9-4dcd-a937-bd2136f29ebf)
+![ImageDetails3](https://github.com/Georgiiw/Wallpapers-application/assets/92953898/d4c39442-7ff2-4157-b48a-abc9bf5b50b7)
 
 ### All uploads by the user of the selected wallpaper
 ![AllPhotosByUser](https://github.com/Georgiiw/Wallpapers-application/assets/92953898/4554942c-fd94-4ecc-a906-46295f63542f)
