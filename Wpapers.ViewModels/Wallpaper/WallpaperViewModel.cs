@@ -14,5 +14,6 @@ namespace Wpapers.ViewModels.Wallpaper
         public string UploaderId { get; set; } = null!;
         public string UploaderName { get; set; } = null!;
         public int Likes { get; set; }
+        public DateTime UploadedOn { get; set; }
     }
 }

@@ -21,6 +21,7 @@ namespace Wpapers.Data.Models
         [Required]
         public string UploaderName { get; set; } = null!;
         public int Likes { get; set; }
+        public DateTime UploadedOn { get; set; }
 
 
     }

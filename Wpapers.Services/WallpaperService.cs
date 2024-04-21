@@ -41,6 +41,7 @@ namespace Wpapers.Services
                 UploaderName = user.Nickname,
                 UploaderId = user.Id,
                 ImagePath = model.ImagePath,
+                UploadedOn = DateTime.Now
 
             };
             await this._dbContext.AddAsync(wp);
@@ -75,6 +76,7 @@ namespace Wpapers.Services
                     UploaderId = w.UploaderId.ToString(),
                     UploaderName = w.UploaderName,
                     Likes = w.Likes,
+                    UploadedOn = w.UploadedOn
                 })
                 .ToListAsync();       
             
@@ -180,6 +182,7 @@ namespace Wpapers.Services
                     ImagePath = w.ImagePath,
                     UploaderId = w.UploaderId.ToString(),
                     UploaderName = w.UploaderName,
+                    UploadedOn = w.UploadedOn,
                 }).ToListAsync();
 
                return myUploads;
