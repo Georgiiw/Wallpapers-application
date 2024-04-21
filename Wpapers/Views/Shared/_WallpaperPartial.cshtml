@@ -27,23 +27,46 @@
 <div class="modal fade" id="wallpaperModal-@Model.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">                  
+            <div class="modal-header">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <img class="d-block w-100" id="wallpaperDetails" src="@Model.ImagePath">
             </div>
             <div class="modal-footer">
-                <h3 style="color: white;">
-                    Likes: @Model.Likes.ToString()
-                    <a class="" text-dark" asp-area="" asp-controller="Wallpaper" asp-action="Like" asp-route-id="@Model.Id"><i class="fa-regular fa-heart" style="color: #d01f0b;"></i></a> 
-                    View more wallpapers by @Model.UploaderName
-                    <a class="" text-dark" asp-area="" asp-controller="User" asp-action="Profile" asp-route-id="@Model.Id">here</a>
-                </h3>
-                <a href="@Model.ImagePath" download="@Model.Ttitle">
-                    <button class="button">Download Wallpaper</button>
-                </a>
-                <h5 style="color: white">Uploaded on @Model.UploadedOn.Date.ToString("dd/MM/yyyy")</h5>
+                <div class="grid-items">
+                    <div>
+                        <p style="color:white">
+                            Wallpaper name:</br>
+                            @Model.Ttitle
+                        </p>
+                    </div>
+                    <div style="color:white">
+                        <p>
+                            Likes:</br>
+                            @Model.Likes.ToString()
+                            <a class="" text-dark" asp-area="" asp-controller="Wallpaper" asp-action="Like"
+                            asp-route-id="@Model.Id"><i class="fa-regular fa-heart" style="color: #d01f0b;"></i></a>
+                        </p>                     
+                    </div>
+                    <div>
+                        <p style="color:white">
+                            View more wallpapers by @Model.UploaderName
+                            <a class="" text-dark" asp-area="" asp-controller="User" asp-action="Profile"
+                             asp-route-id="@Model.Id">here</a>
+                        </p>
+                    </div>
+                    <div>
+                        <p style="color: white">Uploaded on @Model.UploadedOn.Date.ToString("dd/MM/yyyy")</p>
+                    </div>
+                </div>
+                <div>
+                    <p>
+                      <a href="@Model.ImagePath" download="@Model.Ttitle">
+                          <button class="button">Download Wallpaper</button>
+                      </a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>

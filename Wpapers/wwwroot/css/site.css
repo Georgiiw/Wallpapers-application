@@ -139,8 +139,18 @@ header {
     border-bottom: unset;
 }
 .modal-footer {
+    display: flex;
     justify-content: center;
     border-top: unset;
+}
+.grid-items {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0px, 1fr));
+    background-color: black;
+    padding: 20px;
+    border-radius: 15px;
+    gap: 30px 20px;
+    box-shadow: 0 0 6px white;
 }
 /*---SearchBar---*/
 .search {
