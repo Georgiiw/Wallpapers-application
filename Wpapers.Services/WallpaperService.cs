@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Wpapers.Data;
 using Wpapers.Data.Models;
 using Wpapers.Services.Interfaces;
+using Wpapers.ViewModels.Enums;
 using Wpapers.ViewModels.Wallpaper;
 
 namespace Wpapers.Services
@@ -58,6 +59,13 @@ namespace Wpapers.Services
             {
                 wallpaperQuery = wallpaperQuery.Where(w => w.Title.ToLower().Contains(searchString));
             }
+
+            wallpaperQuery = model.SortBy switch
+            {
+                SortBy.Newest => wallpaperQuery.OrderByDescending(w => w.UploadedOn),
+                SortBy.Oldest => wallpaperQuery.OrderBy(w => w.UploadedOn),
+                _ => wallpaperQuery.OrderBy(w => w.Id)
+            };
 
             int totalWallpapers = wallpaperQuery.Count();
             model.PageSize = 5;

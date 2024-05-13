@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Wpapers.ViewModels.Enums;
 
 namespace Wpapers.ViewModels.Wallpaper
 {
@@ -13,6 +14,7 @@ namespace Wpapers.ViewModels.Wallpaper
             this.Wallpapers = new HashSet<WallpaperViewModel>();
         }
         public IEnumerable<WallpaperViewModel> Wallpapers { get; set; }
+        public SortBy SortBy { get; set; }
         public int Pages { get; set; }
         public int CurrentPage {  get; set; }
         public int TotalWallpapers { get; set; }
